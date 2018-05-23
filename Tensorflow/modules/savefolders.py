@@ -22,7 +22,8 @@ class SaveFolders():
     def _create_folders(self):
         subfolders = {'weights': join(self.root_folder, 'weights'),
                       'tensorboard': join(self.root_folder, 'tensorboard'),
-                      'images': join(self.root_folder, 'images')}
+                      'images': join(self.root_folder, 'images'),
+                      'joined_models': join(self.root_folder, 'joined_models')}
         root_folder = self._create_root_folder()
         for subfolder in subfolders:
             if not exists(subfolders[subfolder]):
@@ -31,7 +32,7 @@ class SaveFolders():
 
     def get_weight_file(self):
         weight_file = join(self.subfolders['weights'],
-                           self.experiment_name + self.timestr + self.extra_comments + '.cpkt')
+                           self.experiment_name + self.timestr + self.extra_comments + '.ckpt')
         return weight_file
 
     def get_logdir_tensorboard(self):
